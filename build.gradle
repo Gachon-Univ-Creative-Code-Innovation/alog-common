@@ -14,15 +14,6 @@ java {
 	}
 }
 
-tasks.named('bootJar') {
-	enabled = false
-
-}
-
-tasks.named('jar') {
-	enabled = true
-}
-
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
@@ -34,21 +25,26 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('bootJar') {
+	enabled = false
+}
+tasks.named('jar') {
+	enabled = true
 }
 
 publishing {
 	publications {
 		maven(MavenPublication) {
+			from components.java
 			groupId = 'com.github.Gachon-Univ-Creative-Code-Innovation'
 			artifactId = 'alog-common'
 			version = '0.0.1-SNAPSHOT'
-
-			from components.java
 		}
 	}
 }
