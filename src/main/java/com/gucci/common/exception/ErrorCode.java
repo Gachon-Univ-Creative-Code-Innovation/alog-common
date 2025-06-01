@@ -42,7 +42,8 @@ public enum ErrorCode {
 
     // 블로그
     NOT_FOUND_POST(HttpStatus.NOT_FOUND,"해당하는 글이 없습니다."),
-    NOT_FOUND_COMMENT(HttpStatus.NOT_FOUND,"해당하는 댓글이 없습니다.")
+    NOT_FOUND_POST_CONTENT(HttpStatus.NOT_FOUND,"해당하는 글 본문이 없습니다.")
+    ,NOT_FOUND_COMMENT(HttpStatus.NOT_FOUND,"해당하는 댓글이 없습니다.")
     , POST_NO_PERMISSION(HttpStatus.BAD_REQUEST, "작성자만 수정할 수 있습니다")
     ,
 
